@@ -171,6 +171,58 @@ footer{background:var(--dark);border-top:1px solid var(--border);padding:60px 60
 .footer-social{display:flex;gap:20px}
 .social-link{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:color 0.3s}
 .social-link:hover{color:var(--gold)}
+
+@media(max-width:768px){
+  nav{padding:16px 20px}
+  .nav-links{display:none}
+  .nav-cta{padding:8px 16px;font-size:10px}
+
+  .hero-content{padding:32px 20px 60px}
+  .hero-title{font-size:40px;line-height:1.1}
+  .hero-sub{font-size:13px;max-width:100%;margin-bottom:24px}
+  .hero-btns{flex-direction:column;align-items:flex-start;gap:12px}
+  .btn-primary{padding:14px 28px;font-size:11px}
+  .hero-stats{display:none}
+  .slider-controls{bottom:20px;right:20px}
+  .arrow{width:36px;height:36px;font-size:15px}
+
+  .intro{padding:60px 20px;grid-template-columns:1fr;gap:40px}
+  .intro-title{font-size:34px}
+  .intro-img{height:300px;order:-1}
+  .intro-img-badge{bottom:-16px;left:-8px;width:130px;padding:16px}
+  .badge-num{font-size:36px}
+
+  .featured{padding:60px 20px 80px}
+  .section-header{flex-direction:column;align-items:flex-start;gap:12px;margin-bottom:40px}
+  .section-title{font-size:34px}
+  .villas-grid{grid-template-columns:1fr}
+  .villa-img{height:260px !important}
+
+  .process{padding:60px 20px}
+  .process-title{font-size:34px;margin-bottom:40px}
+  .steps{grid-template-columns:1fr 1fr;gap:2px}
+  .step{padding:28px 20px}
+  .step-num{font-size:44px}
+
+  .locations{padding:60px 20px}
+  .loc-title{font-size:34px}
+  .loc-grid{grid-template-columns:1fr}
+  .loc-card{height:200px}
+
+  .testimonial{padding:60px 20px}
+  .test-quote{font-size:22px}
+  .test-quote::before{font-size:56px}
+
+  .cta-section{padding:80px 20px}
+  .cta-title{font-size:40px}
+  .cta-form{flex-direction:column}
+  .cta-input{border-right:1px solid var(--border);margin-bottom:8px}
+  .cta-btn{padding:14px}
+
+  footer{padding:40px 20px 24px}
+  .footer-top{grid-template-columns:1fr;gap:32px}
+  .footer-bottom{flex-direction:column;gap:16px;text-align:center}
+}
 </style>
 </head>
 <body>
