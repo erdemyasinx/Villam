@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hakkımızda — İstanbul Villa</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#C9A84C;
+  --gold-light:#E8D5A3;
+  --dark:#0A0A0A;
+  --dark2:#111111;
+  --dark3:#1A1A1A;
+  --dark4:#242424;
+  --text:#F5F0E8;
+  --muted:#8A8070;
+  --border:rgba(201,168,76,0.2);
+}
+body{background:var(--dark);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,0.95);border-bottom:1px solid var(--border)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:4px;color:var(--gold)}
+.logo span{color:var(--text)}
+.nav-links{display:flex;gap:40px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.nav-links a:hover{color:var(--gold);transition:color 0.3s}
+.nav-cta{font-size:11px;letter-spacing:2px;text-transform:uppercase;border:1px solid var(--gold);color:var(--gold);padding:10px 24px;transition:all 0.3s;cursor:pointer}
+.nav-cta:hover{background:var(--gold);color:var(--dark)}
+
+.hero{height:60vh;position:relative;overflow:hidden;margin-top:73px;background:var(--dark3);display:flex;align-items:flex-end}
+.hero-bg{position:absolute;inset:0;background:url('130408314.jpg') center/cover no-repeat;opacity:0.25}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,1) 0%,rgba(10,10,10,0.4) 100%)}
+.hero-content{position:relative;z-index:2;padding:80px 60px}
+.hero-tag{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.hero-tag::before{content:'';display:block;width:40px;height:1px;background:var(--gold)}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:72px;font-weight:300;line-height:1}
+.hero-title em{font-style:italic;color:var(--gold)}
+
+.stats-bar{display:flex;border-bottom:1px solid var(--border);border-top:1px solid var(--border)}
+.stat-item{flex:1;padding:40px;text-align:center;border-right:1px solid var(--border)}
+.stat-item:last-child{border-right:none}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:52px;color:var(--gold);line-height:1;margin-bottom:8px}
+.stat-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+
+.story-section{padding:120px 60px;display:grid;grid-template-columns:1fr 1fr;gap:120px;align-items:center}
+.section-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px;display:flex;align-items:center;gap:12px}
+.section-label::before{content:'';display:block;width:32px;height:1px;background:var(--gold)}
+.story-title{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;line-height:1.1;margin-bottom:32px}
+.story-title em{font-style:italic;color:var(--gold)}
+.story-text{font-size:14px;color:var(--muted);line-height:2;margin-bottom:20px}
+.story-img{height:580px;position:relative}
+.story-img-main{width:100%;height:100%;background:url('160193420.jpg') center/cover no-repeat}
+.story-badge{position:absolute;bottom:-24px;right:-24px;background:var(--dark);border:1px solid var(--border);padding:32px;text-align:center}
+.badge-num{font-family:'Cormorant Garamond',serif;font-size:52px;color:var(--gold);line-height:1}
+.badge-text{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:8px}
+
+.values-section{padding:0 60px 120px}
+.values-title{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;margin-bottom:60px}
+.values-title em{font-style:italic;color:var(--gold)}
+.values-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px}
+.value-card{background:var(--dark3);border:1px solid var(--border);padding:48px 40px;transition:border-color 0.3s}
+.value-card:hover{border-color:var(--gold)}
+.value-icon{font-size:28px;color:var(--gold);margin-bottom:24px}
+.value-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:300;margin-bottom:16px}
+.value-text{font-size:13px;color:var(--muted);line-height:1.9}
+
+.team-section{padding:0 60px 120px}
+.team-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:60px}
+.team-title{font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300}
+.team-title em{font-style:italic;color:var(--gold)}
+.team-sub{font-size:13px;color:var(--muted);max-width:320px;line-height:1.8;text-align:right}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px}
+.team-card{background:var(--dark3);border:1px solid var(--border);overflow:hidden}
+.team-img{height:280px;background:var(--dark4);background-size:cover;background-position:center top}
+.team-info{padding:28px 24px}
+.team-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;margin-bottom:6px}
+.team-role{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+.team-desc{font-size:12px;color:var(--muted);line-height:1.8}
+
+.cta-section{background:var(--dark3);border-top:1px solid var(--border);padding:100px 60px;text-align:center}
+.cta-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:20px}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:56px;font-weight:300;margin-bottom:16px}
+.cta-title em{font-style:italic;color:var(--gold)}
+.cta-sub{font-size:14px;color:var(--muted);margin-bottom:48px}
+.cta-btn{display:inline-block;background:var(--gold);color:var(--dark);font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:18px 48px;font-family:'Jost',sans-serif;font-weight:500;transition:background 0.3s}
+.cta-btn:hover{background:var(--gold-light)}
+
+footer{background:var(--dark2);border-top:1px solid var(--border);padding:60px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;letter-spacing:4px;color:var(--gold);margin-bottom:16px}
+.footer-logo span{color:var(--text)}
+.footer-desc{font-size:13px;color:var(--muted);line-height:1.8}
+.footer-heading{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--text);margin-bottom:20px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links a{font-size:13px;color:var(--muted);transition:color 0.3s}
+.footer-links a:hover{color:var(--gold)}
+.footer-copy{border-top:1px solid var(--border);padding:24px 60px;font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">İSTANBUL <span>VİLLA</span></a>
+  <div class="nav-links">
+    <a href="index.html#featured">Villalar</a>
+    <a href="hakkimizda.html" style="color:var(--gold)">Hakkımızda</a>
+    <a href="#">İletişim</a>
+  </div>
+  <a href="https://wa.me/905531195545" target="_blank" class="nav-cta">Randevu Al</a>
+</nav>
+
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-tag">İstanbul Villa</div>
+    <h1 class="hero-title">20 Yılı Aşkın<br><em>Tecrübe</em></h1>
+  </div>
+</div>
+
+<div class="stats-bar">
+  <div class="stat-item">
+    <div class="stat-num">20+</div>
+    <div class="stat-label">Yıllık Tecrübe</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">10+</div>
+    <div class="stat-label">Uzman Danışman</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">500+</div>
+    <div class="stat-label">Tamamlanan Satış</div>
+  </div>
+  <div class="stat-item">
+    <div class="stat-num">₺2B+</div>
+    <div class="stat-label">Toplam Portföy Değeri</div>
+  </div>
+</div>
+
+<div class="story-section">
+  <div>
+    <div class="section-label">Hikayemiz</div>
+    <h2 class="story-title">İstanbul'un En<br>Prestijli <em>Adreslerinde</em><br>20 Yıldır Yanınızdayız</h2>
+    <p class="story-text">2004 yılında İstanbul'un kalbinde kurulan İstanbul Villa, lüks gayrimenkul sektöründe köklü bir isim haline gelmiştir. Boğaz manzaralı villalardan tarihi yarımadanın eşsiz konutlarına, modern mimarinin şaheserlerinden doğayla iç içe geniş arazilere uzanan zengin portföyümüzle binlerce aileye ev sahipliğinin keyfini yaşattık.</p>
+    <p class="story-text">Müşteri odaklı yaklaşımımız ve piyasanın derinliklerine hakim uzman ekibimizle, hayalinizdeki evi bulmak artık çok daha kolay. Her satış sürecinde şeffaf iletişim ve kişiselleştirilmiş hizmet anlayışımızı ön planda tutarak, yatırımınızı güvence altına alıyoruz.</p>
+    <p class="story-text">İstanbul'un 39 ilçesinde aktif portföyümüz ve güçlü sektör ağımızla, piyasada listelenmeyen özel fırsatlara erişim imkânı sunuyoruz. Çünkü en iyi villalar, çoğu zaman kapıya gelmez — onları sizin için buluyoruz.</p>
+  </div>
+  <div class="story-img">
+    <div class="story-img-main"></div>
+    <div class="story-badge">
+      <div class="badge-num">500+</div>
+      <div class="badge-text">Mutlu Aile</div>
+    </div>
+  </div>
+</div>
+
+<div class="values-section">
+  <div class="section-label">Değerlerimiz</div>
+  <h2 class="values-title">Neden <em>Bizi</em> Seçmelisiniz</h2>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-icon">◈</div>
+      <div class="value-name">Şeffaf İletişim</div>
+      <p class="value-text">Satış sürecinin her adımında tam şeffaflık ilkesiyle hareket ediyoruz. Gizli maliyet yok, sürpriz yok — sadece dürüst ve açık bir danışmanlık süreci.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">◈</div>
+      <div class="value-name">Uzman Ekip</div>
+      <p class="value-text">10'dan fazla sertifikalı gayrimenkul danışmanından oluşan ekibimiz, İstanbul'un her semtini ve piyasa dinamiklerini yakından tanımaktadır.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">◈</div>
+      <div class="value-name">Özel Portföy</div>
+      <p class="value-text">Piyasada listelenmeyen, yalnızca özel müşterilerimize sunulan exclusive villa portföyümüzle rakiplerimizden ayrışıyoruz.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">◈</div>
+      <div class="value-name">Hızlı Sonuç</div>
+      <p class="value-text">Güçlü alıcı-satıcı ağımız sayesinde ortalama satış süremiz sektör ortalamasının çok altında. Zamanınız bizim için de değerlidir.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">◈</div>
+      <div class="value-name">Hukuki Güvence</div>
+      <p class="value-text">Anlaşmalı hukuk büromuz aracılığıyla tapu, ipotek ve sözleşme süreçlerinde tam hukuki güvence sağlıyoruz. Risksiz, sorunsuz bir satın alma deneyimi sunuyoruz.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">◈</div>
+      <div class="value-name">Satış Sonrası Destek</div>
+      <p class="value-text">İşimiz satışla bitmiyor. Taşınma sürecinizden tadilat danışmanlığına, yatırım yönetimine kadar her aşamada yanınızdayız.</p>
+    </div>
+  </div>
+</div>
+
+<div class="team-section">
+  <div class="team-header">
+    <div>
+      <div class="section-label">Ekibimiz</div>
+      <h2 class="team-title">Uzman <em>Danışmanlarımız</em></h2>
+    </div>
+    <p class="team-sub">Her danışmanımız kendi uzmanlık alanında en az 10 yıl deneyime sahiptir.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-img" style="background:var(--dark4);display:flex;align-items:center;justify-content:center">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:64px;color:var(--border)">A</span>
+      </div>
+      <div class="team-info">
+        <div class="team-name">Ahmet Karahan</div>
+        <div class="team-role">Kurucu & Genel Müdür</div>
+        <p class="team-desc">20 yılı aşkın gayrimenkul deneyimiyle İstanbul'un en değerli portföylerini yönetmektedir.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-img" style="background:var(--dark4);display:flex;align-items:center;justify-content:center">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:64px;color:var(--border)">S</span>
+      </div>
+      <div class="team-info">
+        <div class="team-name">Selin Öztürk</div>
+        <div class="team-role">Kıdemli Villa Danışmanı</div>
+        <p class="team-desc">Boğaz hattı ve Avrupa yakası lüks konut segmentinde 14 yıllık uzmanlık.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-img" style="background:var(--dark4);display:flex;align-items:center;justify-content:center">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:64px;color:var(--border)">M</span>
+      </div>
+      <div class="team-info">
+        <div class="team-name">Murat Demir</div>
+        <div class="team-role">Yatırım Danışmanı</div>
+        <p class="team-desc">Gayrimenkul yatırım analizi ve portföy yönetimi konularında sektörün önde gelen ismi.</p>
+      </div>
+    </div>
+    <div class="team-card">
+      <div class="team-img" style="background:var(--dark4);display:flex;align-items:center;justify-content:center">
+        <span style="font-family:'Cormorant Garamond',serif;font-size:64px;color:var(--border)">Z</span>
+      </div>
+      <div class="team-info">
+        <div class="team-name">Zeynep Aydın</div>
+        <div class="team-role">Müşteri İlişkileri Direktörü</div>
+        <p class="team-desc">Özel müşteri portföyü yönetimi ve uluslararası alıcı ilişkileri konusunda 12 yıl deneyim.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-section">
+  <div class="cta-label">Hayalinizdeki Villa</div>
+  <h2 class="cta-title">Sizi <em>Tanıyalım</em></h2>
+  <p class="cta-sub">Ücretsiz danışmanlık görüşmesi için WhatsApp'tan ulaşın.</p>
+  <a href="https://wa.me/905531195545" target="_blank" class="cta-btn">WhatsApp'tan Yazın</a>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">İSTANBUL <span>VİLLA</span></div>
+    <p class="footer-desc">İstanbul'un en prestijli semtlerinde lüks villa satışı ve danışmanlığı. 20 yılı aşkın deneyimle hizmetinizdeyiz.</p>
+  </div>
+  <div>
+    <div class="footer-heading">Villalar</div>
+    <ul class="footer-links">
+      <li><a href="villa-beyza.html">Villa Beyza</a></li>
+      <li><a href="#">Boğaz Manzaralı</a></li>
+      <li><a href="#">Havuzlu Villalar</a></li>
+      <li><a href="#">Modern Villalar</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-heading">Kurumsal</div>
+    <ul class="footer-links">
+      <li><a href="hakkimizda.html">Hakkımızda</a></li>
+      <li><a href="#">Ekibimiz</a></li>
+      <li><a href="#">Referanslar</a></li>
+      <li><a href="#">İletişim</a></li>
+    </ul>
+  </div>
+  <div>
+    <div class="footer-heading">İletişim</div>
+    <ul class="footer-links">
+      <li><a href="https://wa.me/905531195545">0553 119 55 45</a></li>
+      <li><a href="#">İstanbul, Türkiye</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-copy">© 2024 İstanbul Villa. Tüm hakları saklıdır.</div>
+
+</body>
+</html>
