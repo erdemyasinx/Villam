@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Villa Beyza — Alkent 2000, Büyükçekmece · İstanbul Villa</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#C9A84C;
+  --gold-light:#E8D5A3;
+  --dark:#0A0A0A;
+  --dark2:#111111;
+  --dark3:#1A1A1A;
+  --dark4:#242424;
+  --text:#F5F0E8;
+  --muted:#8A8070;
+  --border:rgba(201,168,76,0.2);
+}
+body{background:var(--dark);color:var(--text);font-family:'Jost',sans-serif;font-weight:300;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 60px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,10,0.95);border-bottom:1px solid var(--border)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;letter-spacing:4px;color:var(--gold)}
+.logo span{color:var(--text)}
+.nav-links{display:flex;gap:40px;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+.nav-links a:hover{color:var(--gold);transition:color 0.3s}
+.nav-cta{font-size:11px;letter-spacing:2px;text-transform:uppercase;border:1px solid var(--gold);color:var(--gold);padding:10px 24px;transition:all 0.3s;cursor:pointer}
+.nav-cta:hover{background:var(--gold);color:var(--dark)}
+
+/* HERO */
+.villa-hero{height:70vh;position:relative;overflow:hidden;margin-top:73px}
+.villa-hero-bg{width:100%;height:100%;background:url('villa-beyza-cover.jpg') center/cover no-repeat;transition:transform 6s ease}
+.villa-hero:hover .villa-hero-bg{transform:scale(1.04)}
+.villa-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,0.85) 0%,rgba(10,10,10,0.2) 60%)}
+.villa-hero-content{position:absolute;bottom:0;left:0;right:0;padding:60px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end}
+.villa-tag-pill{background:var(--gold);color:var(--dark);font-size:9px;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;font-weight:500;display:inline-block;margin-bottom:14px}
+.villa-hero-name{font-family:'Cormorant Garamond',serif;font-size:68px;font-weight:300;line-height:1;margin-bottom:8px}
+.villa-hero-name em{font-style:italic;color:var(--gold)}
+.villa-hero-loc{font-size:13px;color:rgba(245,240,232,0.7);display:flex;align-items:center;gap:8px}
+.villa-hero-loc::before{content:'◉';font-size:10px;color:var(--gold)}
+.villa-hero-price-box{text-align:right}
+.price-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.price-value{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--gold)}
+.back-link{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:color 0.3s;margin-bottom:10px}
+.back-link:hover{color:var(--gold)}
+
+/* BREADCRUMB */
+.breadcrumb{padding:20px 60px;border-bottom:1px solid var(--border);font-size:12px;color:var(--muted);display:flex;gap:8px;align-items:center}
+.breadcrumb a:hover{color:var(--gold)}
+.breadcrumb span{color:var(--gold)}
+
+/* QUICK STATS */
+.quick-stats{display:flex;border-bottom:1px solid var(--border)}
+.qstat{flex:1;padding:28px 40px;border-right:1px solid var(--border);text-align:center}
+.qstat:last-child{border-right:none}
+.qstat-num{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--gold);line-height:1;margin-bottom:6px}
+.qstat-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted)}
+
+/* GALLERY */
+.gallery-section{padding:80px 60px}
+.gallery-label{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:28px;display:flex;align-items:center;gap:12px}
+.gallery-label::before{content:'';display:block;width:32px;height:1px;background:var(--gold)}
+.gallery-grid{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:320px 320px;gap:4px}
+.g-img{background-size:cover;background-position:center;cursor:pointer;transition:transform 0.4s ease;overflow:hidden}
+.g-img:hover{transform:scale(1.02)}
+.g-main{grid-row:1/3}
+.g-count{background:var(--dark3);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;cursor:pointer;transition:background 0.3s}
+.g-count:hover{background:var(--dark4)}
+.g-count-num{font-family:'Cormorant Garamond',serif;font-size:48px;color:var(--gold)}
+.g-count-text{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+/* LIGHTBOX */
+.lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.96);z-index:999;align-items:center;justify-content:center}
+.lightbox.open{display:flex}
+.lb-img{max-width:90vw;max-height:85vh;object-fit:contain}
+.lb-close{position:absolute;top:24px;right:32px;color:var(--gold);font-size:32px;cursor:pointer;background:none;border:none;font-family:'Jost',sans-serif;line-height:1}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);background:rgba(201,168,76,0.15);border:1px solid var(--border);color:var(--gold);width:52px;height:52px;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.3s}
+.lb-prev{left:24px}
+.lb-next{right:24px}
+.lb-prev:hover,.lb-next:hover{background:var(--gold);color:var(--dark)}
+
+/* DETAILS */
+.details-section{padding:80px 60px;display:grid;grid-template-columns:1fr 380px;gap:80px;align-items:start}
+.detail-block{margin-bottom:40px}
+.detail-heading{font-family:'Cormorant Garamond',serif;font-size:38px;font-weight:300;margin-bottom:20px}
+.detail-heading em{font-style:italic;color:var(--gold)}
+.detail-text{font-size:14px;color:var(--muted);line-height:1.9;margin-bottom:16px}
+
+/* FEATURES LIST */
+.features-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.feature-item{display:flex;align-items:center;gap:10px;font-size:13px;padding:12px 16px;background:var(--dark3);border:1px solid var(--border)}
+.feature-icon{color:var(--gold);font-size:14px;flex-shrink:0}
+
+/* SIDEBAR */
+.villa-sidebar{position:sticky;top:100px}
+.sidebar-card{background:var(--dark3);border:1px solid var(--border);padding:36px;margin-bottom:24px}
+.sidebar-price{font-family:'Cormorant Garamond',serif;font-size:42px;color:var(--gold);margin-bottom:6px;line-height:1}
+.sidebar-price-label{font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+.contact-btn{width:100%;padding:16px;background:var(--gold);color:var(--dark);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:500;border:none;cursor:pointer;transition:background 0.3s;margin-bottom:12px;display:block;text-align:center}
+.contact-btn:hover{background:var(--gold-light)}
+.whatsapp-btn{width:100%;padding:16px;background:transparent;color:var(--text);font-size:11px;letter-spacing:2px;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:400;border:1px solid var(--border);cursor:pointer;transition:all 0.3s;display:block;text-align:center}
+.whatsapp-btn:hover{border-color:var(--gold);color:var(--gold)}
+.sidebar-divider{height:1px;background:var(--border);margin:24px 0}
+.sidebar-detail-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:8px 0;border-bottom:1px solid rgba(201,168,76,0.08)}
+.sidebar-detail-row:last-child{border-bottom:none}
+.sidebar-detail-label{color:var(--muted)}
+.sidebar-detail-value{color:var(--text);font-weight:400}
+
+/* LOCATION */
+.location-section{padding:0 60px 80px}
+.loc-box{background:var(--dark3);border:1px solid var(--border);padding:36px;display:flex;gap:40px;align-items:center}
+.loc-icon{font-size:40px;color:var(--gold);flex-shrink:0}
+.loc-details h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;margin-bottom:8px}
+.loc-details p{font-size:13px;color:var(--muted);line-height:1.8}
+.loc-tags{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap}
+.loc-tag{font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border:1px solid var(--border);color:var(--muted)}
+
+/* MAP PLACEHOLDER */
+.map-placeholder{margin-top:20px;height:280px;background:var(--dark4);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px}
+.map-placeholder p{font-size:13px;color:var(--muted)}
+.map-btn{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:10px 24px;display:inline-block;transition:all 0.3s;margin-top:8px}
+.map-btn:hover{background:var(--gold);color:var(--dark)}
+
+/* FOOTER */
+footer{background:var(--dark);border-top:1px solid var(--border);padding:60px 60px 40px}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:60px;margin-bottom:60px}
+.footer-logo{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:300;letter-spacing:4px;color:var(--gold);margin-bottom:16px}
+.footer-logo span{color:var(--text)}
+.footer-desc{font-size:13px;color:var(--muted);line-height:1.8}
+.footer-heading{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--text);margin-bottom:20px}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:10px}
+.footer-links li a{font-size:13px;color:var(--muted);transition:color 0.3s}
+.footer-links li a:hover{color:var(--gold)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:32px;display:flex;justify-content:space-between;align-items:center}
+.footer-copy{font-size:12px;color:var(--muted)}
+.footer-social{display:flex;gap:20px}
+.social-link{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--muted);transition:color 0.3s}
+.social-link:hover{color:var(--gold)}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">İSTANBUL<span> VİLLA</span></a>
+  <div class="nav-links">
+    <a href="index.html#featured">Villalar</a>
+    <a href="index.html#locations">Lokasyonlar</a>
+    <a href="#">Hakkımızda</a>
+    <a href="#">İletişim</a>
+  </div>
+  <div class="nav-cta">Randevu Al</div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">Ana Sayfa</a>
+  <span>›</span>
+  <a href="index.html#featured">Villalar</a>
+  <span>›</span>
+  <span>Villa Beyza</span>
+</div>
+
+<div class="villa-hero">
+  <div class="villa-hero-bg"></div>
+  <div class="villa-hero-overlay"></div>
+  <div class="villa-hero-content">
+    <div>
+      <a href="index.html#featured" class="back-link">← Villaları Gör</a>
+      <div class="villa-tag-pill">Lüks Malikane · Yeni İlan</div>
+      <div class="villa-hero-name">Villa <em>Beyza</em></div>
+      <div class="villa-hero-loc">Alkent 2000, Büyükçekmece · İstanbul</div>
+    </div>
+    <div class="villa-hero-price-box">
+      <div class="price-label">Satış Fiyatı</div>
+      <div class="price-value">₺115.000.000</div>
+    </div>
+  </div>
+</div>
+
+<div class="quick-stats">
+  <div class="qstat"><div class="qstat-num">9+4</div><div class="qstat-label">Oda Sayısı</div></div>
+  <div class="qstat"><div class="qstat-num">4</div><div class="qstat-label">Banyo</div></div>
+  <div class="qstat"><div class="qstat-num">Alkent</div><div class="qstat-label">Site / Konum</div></div>
+  <div class="qstat"><div class="qstat-num">Lüks</div><div class="qstat-label">Villa Sınıfı</div></div>
+  <div class="qstat"><div class="qstat-num">Sahibinden</div><div class="qstat-label">İlan Tipi</div></div>
+</div>
+
+<div class="gallery-section">
+  <div class="gallery-label">Fotoğraflar</div>
+  <div class="gallery-grid">
+    <div class="g-img g-main" style="background-image:url('villa-beyza-cover.jpg')" onclick="openLightbox(0)"></div>
+    <div class="g-img" style="background-image:url('villam1.jpg')" onclick="openLightbox(1)"></div>
+    <div class="g-count" onclick="openLightbox(0)">
+      <div class="g-count-num">+</div>
+      <div class="g-count-text">Tüm Fotoğraflar</div>
+    </div>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lb-close" onclick="closeLightbox()">✕</button>
+  <button class="lb-prev" onclick="lbPrev()">&#8592;</button>
+  <img class="lb-img" id="lb-img" src="" alt="Villa Beyza">
+  <button class="lb-next" onclick="lbNext()">&#8594;</button>
+</div>
+
+<div class="details-section">
+  <div>
+    <div class="detail-block">
+      <h2 class="detail-heading">Villa <em>Beyza</em> Hakkında</h2>
+      <p class="detail-text">Alkent 2000 sitesinde yer alan bu lüks malikane, 9+4 oda düzeniyle geniş aile yaşamına hitap eden prestijli bir konuttur. Büyükçekmece'nin en değerli site projelerinden biri olan Alkent 2000 içinde konumlanan villa, üstün mimari tasarımı ve yüksek yapı kalitesiyle dikkat çekmektedir.</p>
+      <p class="detail-text">Özel bahçesi, geniş yaşam alanları ve lüks donanımıyla ailenize özel bir yaşam sunmaktadır. Güvenlikli site içinde yer alan villada sosyal tesisler, yüzme havuzu ve yeşil alanlar sunulmaktadır.</p>
+    </div>
+
+    <div class="detail-block">
+      <div class="gallery-label">Özellikler</div>
+      <div class="features-grid">
+        <div class="feature-item"><span class="feature-icon">◈</span> 9+4 Oda Düzeni</div>
+        <div class="feature-item"><span class="feature-icon">◈</span> Lüks Malikane</div>
+        <div class="feature-item"><span class="feature-icon">◈</span> Güvenlikli Site</div>
+        <div class="feature-item"><span class="feature-icon">◈</span> Özel Bahçe</div>
+        <div class="feature-item"><span class="feature-icon">◈</span> Alkent 2000</div>
+        <div class="feature-item"><span class="feature-icon">◈</span> Büyükçekmece</div>
+        <div class="feature-item"><span class="feature-icon">◈</span> Sosyal Tesisler</div>
+        <div class="feature-item"><span class="feature-icon">◈</span> Sahibinden Satış</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="villa-sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-price">₺115.000.000</div>
+      <div class="sidebar-price-label">Satış Fiyatı</div>
+      <a class="contact-btn" href="tel:+902120000000">İletişime Geç</a>
+      <a class="whatsapp-btn" href="#">WhatsApp'tan Yaz</a>
+      <div class="sidebar-divider"></div>
+      <div class="sidebar-detail-row">
+        <span class="sidebar-detail-label">Oda Sayısı</span>
+        <span class="sidebar-detail-value">9+4</span>
+      </div>
+      <div class="sidebar-detail-row">
+        <span class="sidebar-detail-label">Lokasyon</span>
+        <span class="sidebar-detail-value">Büyükçekmece</span>
+      </div>
+      <div class="sidebar-detail-row">
+        <span class="sidebar-detail-label">Site</span>
+        <span class="sidebar-detail-value">Alkent 2000</span>
+      </div>
+      <div class="sidebar-detail-row">
+        <span class="sidebar-detail-label">Tip</span>
+        <span class="sidebar-detail-value">Lüks Malikane</span>
+      </div>
+      <div class="sidebar-detail-row">
+        <span class="sidebar-detail-label">Durum</span>
+        <span class="sidebar-detail-value">Satılık</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="location-section">
+  <div class="gallery-label">Konum Bilgisi</div>
+  <div class="loc-box">
+    <div class="loc-icon">◉</div>
+    <div class="loc-details">
+      <h3>Alkent 2000, Büyükçekmece · İstanbul</h3>
+      <p>İstanbul'un Büyükçekmece ilçesinde yer alan Alkent 2000 sitesi, şehrin en prestijli konut projelerinden biridir. Ulaşım kolaylığı, güvenlikli yapısı ve sosyal olanakları ile öne çıkan site içinde bu eşsiz villa, lüks yaşam arayanlar için ideal bir fırsat sunmaktadır.</p>
+      <div class="loc-tags">
+        <span class="loc-tag">Büyükçekmece</span>
+        <span class="loc-tag">Alkent 2000</span>
+        <span class="loc-tag">İstanbul Avrupa Yakası</span>
+        <span class="loc-tag">Güvenlikli Site</span>
+      </div>
+      <a class="map-btn" href="https://www.google.com/maps/search/Alkent+2000+Büyükçekmece+İstanbul" target="_blank" rel="noopener noreferrer">Google Harita'da Göster →</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="footer-logo">İSTANBUL<span> VİLLA</span></div>
+      <p class="footer-desc">İstanbul'un en prestijli semtlerinde lüks villa satışı ve danışmanlığı. 12 yılı aşkın deneyimle hizmetinizdeyiz.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Villalar</div>
+      <ul class="footer-links">
+        <li><a href="index.html#featured">Tüm Villalar</a></li>
+        <li><a href="villa-beyza.html">Villa Beyza</a></li>
+        <li><a href="#">Villa Bosphorus</a></li>
+        <li><a href="#">Villa Yeşiltepe</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Lokasyonlar</div>
+      <ul class="footer-links">
+        <li><a href="#">Bebek</a></li>
+        <li><a href="#">Sarıyer</a></li>
+        <li><a href="#">Büyükçekmece</a></li>
+        <li><a href="#">Zekeriyaköy</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">İletişim</div>
+      <ul class="footer-links">
+        <li><a href="#">+90 212 000 00 00</a></li>
+        <li><a href="#">info@istanbul-villa.com</a></li>
+        <li><a href="#">Nişantaşı, İstanbul</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 İstanbul Villa. Tüm hakları saklıdır.</div>
+    <div class="footer-social">
+      <a class="social-link" href="#">Instagram</a>
+      <a class="social-link" href="#">LinkedIn</a>
+      <a class="social-link" href="#">WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const images = [
+  'villa-beyza-cover.jpg',
+  'villam1.jpg'
+];
+let lbIdx = 0;
+
+function openLightbox(idx) {
+  lbIdx = idx;
+  document.getElementById('lb-img').src = images[lbIdx];
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function lbNext() {
+  lbIdx = (lbIdx + 1) % images.length;
+  document.getElementById('lb-img').src = images[lbIdx];
+}
+
+function lbPrev() {
+  lbIdx = (lbIdx - 1 + images.length) % images.length;
+  document.getElementById('lb-img').src = images[lbIdx];
+}
+
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+  if (e.key === 'ArrowRight') lbNext();
+  if (e.key === 'ArrowLeft') lbPrev();
+});
+</script>
+
+</body>
+</html>
